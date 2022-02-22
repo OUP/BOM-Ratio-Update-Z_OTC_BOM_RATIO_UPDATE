@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZOTC_BOM_RATIO_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZOTC_C_BOMPED_COMPONENTSType" sap:label="Bom explosion ped components" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="material"/>
+                    <PropertyRef Name="matcomp"/>
+                    <PropertyRef Name="Sequence"/>
+                </Key>
+                <Property Name="material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="matcomp" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Sequence" Type="Edm.Int32" Nullable="false" sap:label="Sequence number" sap:quickinfo="seq_nr"/>
+                <Property Name="level" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Character Field of Length 12"/>
+                <Property Name="compdesc" Type="Edm.String" MaxLength="40" sap:label="Material description"/>
+                <Property Name="billofmaterialcategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM category"/>
+                <Property Name="ExplodeBom" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Explode BOM"/>
+                <Property Name="trdclassfctnnmbr" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/>
+                <Property Name="TrdClassfctText" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="Moss" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Single-Character Flag"/>
+                <Property Name="PriceRatio" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Price Ratio"/>
+            </EntityType>
+            <EntityType Name="ZOTC_C_BOM_CALC_RATIOType" sap:label="Calculate BOM price ratio" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="sequence"/>
+                    <PropertyRef Name="material"/>
+                    <PropertyRef Name="vkorg"/>
+                    <PropertyRef Name="vtweg"/>
+                    <PropertyRef Name="plant"/>
+                    <PropertyRef Name="AlternativeBOM"/>
+                    <PropertyRef Name="MaterialUsage"/>
+                </Key>
+                <Property Name="sequence" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:quickinfo="Whole Number with +/- Sign (-2.147.483.648 .. 2.147.483.647)"/>
+                <Property Name="material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="AlternativeBOM" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Alternative BOM"/>
+                <Property Name="MaterialUsage" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM Usage"/>
+                <Property Name="status" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Gobal Sales Status" sap:quickinfo="Cross-distribution-chain material status"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+                <Property Name="matcomp" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:label="Material description"/>
+                <Property Name="Category" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM category"/>
+                <Property Name="Commodity" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/>
+                <Property Name="CommodityText" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="PriceRatio" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Price Ratio"/>
+                <Property Name="message" Type="Edm.String" MaxLength="100" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Character 100"/>
+                <Property Name="nonzeroratio" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:filter-restriction="single-value" sap:text="Ignore 0% Ratio packs" sap:label="Ignore 0% Ratio packs" sap:quickinfo="Single-Character Flag"/>
+                <Property Name="error" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:filter-restriction="single-value" sap:label="" sap:quickinfo="Single-Character Flag"/>
+            </EntityType>
+            <EntityType Name="ZOTC_C_EXP_MATLEVEL_HELPType" sap:label="Explode to material level value help" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="value"/>
+                    <PropertyRef Name="langu"/>
+                </Key>
+                <Property Name="value" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Explode to material Level" sap:quickinfo="Values for Domains: Single Value / Upper Limit"/>
+                <Property Name="langu" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Lang." sap:quickinfo="Language Key"/>
+                <Property Name="description" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+            </EntityType>
+            <EntityType Name="ZOTC_C_FREIGHT_SPLITType" sap:label="Freight value split at bom" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="material"/>
+                    <PropertyRef Name="matcomp"/>
+                    <PropertyRef Name="Sequence"/>
+                </Key>
+                <Property Name="material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="matcomp" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Sequence" Type="Edm.Int32" Nullable="false" sap:label="Sequence number" sap:quickinfo="seq_nr"/>
+                <Property Name="compdesc" Type="Edm.String" MaxLength="40" sap:label="Material description"/>
+                <Property Name="trdclassfctnnmbr" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/>
+                <Property Name="TrdClassfctText" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="trdclassfctnnmbrUS" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/>
+                <Property Name="TrdClassfctUSText" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="Moss" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Single-Character Flag"/>
+                <Property Name="PriceRatio" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Price Ratio"/>
+                <Property Name="Value" Type="Edm.Decimal" Precision="13" Scale="2"/>
+            </EntityType>
+            <EntityType Name="ZOTC_C_PACKBOM_COMPONENTSType" sap:label="Bom explosion all components" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="material"/>
+                    <PropertyRef Name="matcomp"/>
+                    <PropertyRef Name="Sequence"/>
+                </Key>
+                <Property Name="material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="matcomp" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Sequence" Type="Edm.Int32" Nullable="false" sap:label="Sequence number" sap:quickinfo="seq_nr"/>
+                <Property Name="level" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Character Field of Length 12"/>
+                <Property Name="compdesc" Type="Edm.String" MaxLength="40" sap:label="Material description"/>
+                <Property Name="billofmaterialcategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM category"/>
+                <Property Name="ExplodeBom" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Explode BOM"/>
+                <Property Name="trdclassfctnnmbr" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/>
+                <Property Name="TrdClassfctText" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="Moss" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Single-Character Flag"/>
+                <Property Name="PriceRatio" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Price Ratio"/>
+            </EntityType>
+            <EntityType Name="zotc_c_price_ratio_validType" sap:label="Bom price ratio check" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="sequence"/>
+                    <PropertyRef Name="material"/>
+                    <PropertyRef Name="vkorg"/>
+                    <PropertyRef Name="vtweg"/>
+                    <PropertyRef Name="plant"/>
+                    <PropertyRef Name="AlternativeBOM"/>
+                    <PropertyRef Name="MaterialUsage"/>
+                </Key>
+                <Property Name="sequence" Type="Edm.Int32" Nullable="false" sap:label="Integer" sap:quickinfo="Whole Number with +/- Sign (-2.147.483.648 .. 2.147.483.647)"/>
+                <Property Name="material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="AlternativeBOM" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Alternative BOM"/>
+                <Property Name="MaterialUsage" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM Usage"/>
+                <Property Name="status" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Gobal Sales Status" sap:quickinfo="Cross-distribution-chain material status"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+                <Property Name="matcomp" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:label="Material description"/>
+                <Property Name="Category" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM category"/>
+                <Property Name="Commodity" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/>
+                <Property Name="CommodityText" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="PriceRatio" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Price Ratio"/>
+                <Property Name="message" Type="Edm.String" MaxLength="100" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Character 100"/>
+                <Property Name="nonzeroratio" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:filter-restriction="single-value" sap:text="Ignore 0% Ratio packs" sap:label="Ignore 0% Ratio packs" sap:quickinfo="Single-Character Flag"/>
+                <Property Name="error" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:filter-restriction="single-value" sap:label="" sap:quickinfo="Single-Character Flag"/>
+            </EntityType>
+            <EntityType Name="ZOTC_C_PRODVALUE_SPLITType" sap:label="Bom explosion value split" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="material"/>
+                    <PropertyRef Name="matcomp"/>
+                    <PropertyRef Name="Sequence"/>
+                </Key>
+                <Property Name="material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="matcomp" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Sequence" Type="Edm.Int32" Nullable="false" sap:label="Sequence number" sap:quickinfo="seq_nr"/>
+                <Property Name="compdesc" Type="Edm.String" MaxLength="40" sap:label="Material description"/>
+                <Property Name="trdclassfctnnmbr" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/>
+                <Property Name="TrdClassfctText" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="trdclassfctnnmbrUS" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/>
+                <Property Name="TrdClassfctUSText" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="Moss" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Single-Character Flag"/>
+                <Property Name="PriceRatio" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Price Ratio"/>
+                <Property Name="Value" Type="Edm.Decimal" Precision="13" Scale="2"/>
+            </EntityType>
+            <EntityType Name="ZOTC_C_VALUE_SIMULATIONType" sap:label="Value distribution simulation" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="product"/>
+                    <PropertyRef Name="vkorg"/>
+                    <PropertyRef Name="plant"/>
+                    <PropertyRef Name="vtweg"/>
+                    <PropertyRef Name="ServDate"/>
+                    <PropertyRef Name="ProdPrice"/>
+                    <PropertyRef Name="FrgtPrice"/>
+                    <PropertyRef Name="Explodelevel"/>
+                </Key>
+                <Property Name="product" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Product" sap:quickinfo="Product Number"/>
+                <Property Name="vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="ServDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:filter-restriction="single-value"/>
+                <Property Name="ProdPrice" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:filter-restriction="single-value"/>
+                <Property Name="FrgtPrice" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:filter-restriction="single-value"/>
+                <Property Name="Explodelevel" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value" sap:label="Explode to material Level" sap:value-list="fixed-values"/>
+                <NavigationProperty Name="to_all" Relationship="ZOTC_BOM_RATIO_SRV.assoc_F28CD33D5FF1F1F52E9C3B17386975F9" FromRole="FromRole_assoc_F28CD33D5FF1F1F52E9C3B17386975F9" ToRole="ToRole_assoc_F28CD33D5FF1F1F52E9C3B17386975F9"/>
+                <NavigationProperty Name="to_fval" Relationship="ZOTC_BOM_RATIO_SRV.assoc_45CD40DBB11E0E78D9DA1C21F4C537C0" FromRole="FromRole_assoc_45CD40DBB11E0E78D9DA1C21F4C537C0" ToRole="ToRole_assoc_45CD40DBB11E0E78D9DA1C21F4C537C0"/>
+                <NavigationProperty Name="to_ped" Relationship="ZOTC_BOM_RATIO_SRV.assoc_A4500A32B29E9C629C9106FD2FD96F94" FromRole="FromRole_assoc_A4500A32B29E9C629C9106FD2FD96F94" ToRole="ToRole_assoc_A4500A32B29E9C629C9106FD2FD96F94"/>
+                <NavigationProperty Name="to_pval" Relationship="ZOTC_BOM_RATIO_SRV.assoc_28FF6A0803A463246CE8E977DBF92D78" FromRole="FromRole_assoc_28FF6A0803A463246CE8E977DBF92D78" ToRole="ToRole_assoc_28FF6A0803A463246CE8E977DBF92D78"/>
+                <NavigationProperty Name="to_vexp" Relationship="ZOTC_BOM_RATIO_SRV.assoc_32C4DAFBAE02CBC70B75D090A325DDD6" FromRole="FromRole_assoc_32C4DAFBAE02CBC70B75D090A325DDD6" ToRole="ToRole_assoc_32C4DAFBAE02CBC70B75D090A325DDD6"/>
+            </EntityType>
+            <Association Name="assoc_45CD40DBB11E0E78D9DA1C21F4C537C0" sap:content-version="1">
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_VALUE_SIMULATIONType" Multiplicity="1" Role="FromRole_assoc_45CD40DBB11E0E78D9DA1C21F4C537C0"/>
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_FREIGHT_SPLITType" Multiplicity="*" Role="ToRole_assoc_45CD40DBB11E0E78D9DA1C21F4C537C0"/>
+            </Association>
+            <Association Name="assoc_A4500A32B29E9C629C9106FD2FD96F94" sap:content-version="1">
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_VALUE_SIMULATIONType" Multiplicity="1" Role="FromRole_assoc_A4500A32B29E9C629C9106FD2FD96F94"/>
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_BOMPED_COMPONENTSType" Multiplicity="*" Role="ToRole_assoc_A4500A32B29E9C629C9106FD2FD96F94"/>
+            </Association>
+            <Association Name="assoc_28FF6A0803A463246CE8E977DBF92D78" sap:content-version="1">
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_VALUE_SIMULATIONType" Multiplicity="1" Role="FromRole_assoc_28FF6A0803A463246CE8E977DBF92D78"/>
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_PRODVALUE_SPLITType" Multiplicity="*" Role="ToRole_assoc_28FF6A0803A463246CE8E977DBF92D78"/>
+            </Association>
+            <Association Name="assoc_32C4DAFBAE02CBC70B75D090A325DDD6" sap:content-version="1">
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_VALUE_SIMULATIONType" Multiplicity="1" Role="FromRole_assoc_32C4DAFBAE02CBC70B75D090A325DDD6"/>
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_EXP_MATLEVEL_HELPType" Multiplicity="0..1" Role="ToRole_assoc_32C4DAFBAE02CBC70B75D090A325DDD6"/>
+            </Association>
+            <Association Name="assoc_F28CD33D5FF1F1F52E9C3B17386975F9" sap:content-version="1">
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_VALUE_SIMULATIONType" Multiplicity="1" Role="FromRole_assoc_F28CD33D5FF1F1F52E9C3B17386975F9"/>
+                <End Type="ZOTC_BOM_RATIO_SRV.ZOTC_C_PACKBOM_COMPONENTSType" Multiplicity="*" Role="ToRole_assoc_F28CD33D5FF1F1F52E9C3B17386975F9"/>
+            </Association>
+            <EntityContainer Name="ZOTC_BOM_RATIO_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZOTC_C_BOMPED_COMPONENTS" EntityType="ZOTC_BOM_RATIO_SRV.ZOTC_C_BOMPED_COMPONENTSType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZOTC_C_BOM_CALC_RATIO" EntityType="ZOTC_BOM_RATIO_SRV.ZOTC_C_BOM_CALC_RATIOType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZOTC_C_EXP_MATLEVEL_HELP" EntityType="ZOTC_BOM_RATIO_SRV.ZOTC_C_EXP_MATLEVEL_HELPType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZOTC_C_FREIGHT_SPLIT" EntityType="ZOTC_BOM_RATIO_SRV.ZOTC_C_FREIGHT_SPLITType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZOTC_C_PACKBOM_COMPONENTS" EntityType="ZOTC_BOM_RATIO_SRV.ZOTC_C_PACKBOM_COMPONENTSType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zotc_c_price_ratio_valid" EntityType="ZOTC_BOM_RATIO_SRV.zotc_c_price_ratio_validType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZOTC_C_PRODVALUE_SPLIT" EntityType="ZOTC_BOM_RATIO_SRV.ZOTC_C_PRODVALUE_SPLITType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZOTC_C_VALUE_SIMULATION" EntityType="ZOTC_BOM_RATIO_SRV.ZOTC_C_VALUE_SIMULATIONType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_A4500A32B29E9C629C9106FD2FD96F94" Association="ZOTC_BOM_RATIO_SRV.assoc_A4500A32B29E9C629C9106FD2FD96F94" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZOTC_C_VALUE_SIMULATION" Role="FromRole_assoc_A4500A32B29E9C629C9106FD2FD96F94"/>
+                    <End EntitySet="ZOTC_C_BOMPED_COMPONENTS" Role="ToRole_assoc_A4500A32B29E9C629C9106FD2FD96F94"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_32C4DAFBAE02CBC70B75D090A325DDD6" Association="ZOTC_BOM_RATIO_SRV.assoc_32C4DAFBAE02CBC70B75D090A325DDD6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZOTC_C_VALUE_SIMULATION" Role="FromRole_assoc_32C4DAFBAE02CBC70B75D090A325DDD6"/>
+                    <End EntitySet="ZOTC_C_EXP_MATLEVEL_HELP" Role="ToRole_assoc_32C4DAFBAE02CBC70B75D090A325DDD6"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_45CD40DBB11E0E78D9DA1C21F4C537C0" Association="ZOTC_BOM_RATIO_SRV.assoc_45CD40DBB11E0E78D9DA1C21F4C537C0" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZOTC_C_VALUE_SIMULATION" Role="FromRole_assoc_45CD40DBB11E0E78D9DA1C21F4C537C0"/>
+                    <End EntitySet="ZOTC_C_FREIGHT_SPLIT" Role="ToRole_assoc_45CD40DBB11E0E78D9DA1C21F4C537C0"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F28CD33D5FF1F1F52E9C3B17386975F9" Association="ZOTC_BOM_RATIO_SRV.assoc_F28CD33D5FF1F1F52E9C3B17386975F9" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZOTC_C_VALUE_SIMULATION" Role="FromRole_assoc_F28CD33D5FF1F1F52E9C3B17386975F9"/>
+                    <End EntitySet="ZOTC_C_PACKBOM_COMPONENTS" Role="ToRole_assoc_F28CD33D5FF1F1F52E9C3B17386975F9"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_28FF6A0803A463246CE8E977DBF92D78" Association="ZOTC_BOM_RATIO_SRV.assoc_28FF6A0803A463246CE8E977DBF92D78" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZOTC_C_VALUE_SIMULATION" Role="FromRole_assoc_28FF6A0803A463246CE8E977DBF92D78"/>
+                    <End EntitySet="ZOTC_C_PRODVALUE_SPLIT" Role="ToRole_assoc_28FF6A0803A463246CE8E977DBF92D78"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_VALUE_SIMULATIONType/Explodelevel" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Explode to material level value help"/>
+                        <PropertyValue Property="CollectionPath" String="ZOTC_C_EXP_MATLEVEL_HELP"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Explodelevel"/>
+                                    <PropertyValue Property="ValueListProperty" String="value"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="description"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_BOM_RATIO_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_BOM_RATIO_SRV_Entities/ZOTC_C_BOM_CALC_RATIO" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="nonzeroratio"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="error"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_BOM_RATIO_SRV_Entities/ZOTC_C_VALUE_SIMULATION" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ServDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ProdPrice"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="FrgtPrice"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Explodelevel"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_BOM_RATIO_SRV_Entities/zotc_c_price_ratio_valid" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="nonzeroratio"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="error"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZOTC_BOM_RATIO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZOTC_BOM_RATIO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

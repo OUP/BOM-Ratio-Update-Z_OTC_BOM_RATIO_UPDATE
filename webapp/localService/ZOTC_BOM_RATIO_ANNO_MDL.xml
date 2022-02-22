@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zotc_bom_ratio_srv/$metadata">
+        <edmx:Include Namespace="ZOTC_BOM_RATIO_SRV" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="zotc_bom_ratio_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_BOMPED_COMPONENTSType/material">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_BOMPED_COMPONENTSType/Sequence">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_BOMPED_COMPONENTSType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="PED Pack"/>
+                            <PropertyValue Property="ID" String="ped"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#pedq"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="pedq">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="level"/>
+                                    <PropertyValue Property="Value" Path="level"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Component"/>
+                                    <PropertyValue Property="Value" Path="matcomp"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Component Description"/>
+                                    <PropertyValue Property="Value" Path="compdesc"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="BOM cat"/>
+                                    <PropertyValue Property="Value" Path="billofmaterialcategory"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Exp(Att8)"/>
+                                    <PropertyValue Property="Value" Path="ExplodeBom"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Comm. code"/>
+                                    <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Comm. code description"/>
+                                    <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                                    <PropertyValue Property="Value" Path="Moss"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Price Ratio %"/>
+                                    <PropertyValue Property="Value" Path="PriceRatio"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="level"/>
+                            <PropertyValue Property="Value" Path="level"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component Description"/>
+                            <PropertyValue Property="Value" Path="compdesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="BOM cat"/>
+                            <PropertyValue Property="Value" Path="billofmaterialcategory"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Exp(Att8)"/>
+                            <PropertyValue Property="Value" Path="ExplodeBom"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                            <PropertyValue Property="Value" Path="Moss"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio %"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Level"/>
+                            <PropertyValue Property="Value" Path="level"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component Description"/>
+                            <PropertyValue Property="Value" Path="compdesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="BOM cat"/>
+                            <PropertyValue Property="Value" Path="billofmaterialcategory"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Exp(Att8)"/>
+                            <PropertyValue Property="Value" Path="ExplodeBom"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                            <PropertyValue Property="Value" Path="Moss"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio %"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_BOM_CALC_RATIOType/sequence">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_BOM_CALC_RATIOType">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String=" Bom Material"/>
+                            <PropertyValue Property="Value" Path="material"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Sales Org"/>
+                            <PropertyValue Property="Value" Path="vkorg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Dist Channel"/>
+                            <PropertyValue Property="Value" Path="vtweg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Plant"/>
+                            <PropertyValue Property="Value" Path="plant"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Alt Bom"/>
+                            <PropertyValue Property="Value" Path="AlternativeBOM"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Value" Path="status"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Division"/>
+                            <PropertyValue Property="Value" Path="Division"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Usage"/>
+                            <PropertyValue Property="Value" Path="MaterialUsage"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Description"/>
+                            <PropertyValue Property="Value" Path="Description"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Bom Cat"/>
+                            <PropertyValue Property="Value" Path="Category"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm Code"/>
+                            <PropertyValue Property="Value" Path="Commodity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm Code Description"/>
+                            <PropertyValue Property="Value" Path="CommodityText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio%"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Message"/>
+                            <PropertyValue Property="Value" Path="message"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Ignore 0% Ratio packs"/>
+                            <PropertyValue Property="Value" Path="nonzeroratio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Show error only"/>
+                            <PropertyValue Property="Value" Path="error"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Pack"/>
+                            <PropertyValue Property="Value" Path="material"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Sales Org"/>
+                            <PropertyValue Property="Value" Path="vkorg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Dist Channel"/>
+                            <PropertyValue Property="Value" Path="vtweg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Plant"/>
+                            <PropertyValue Property="Value" Path="plant"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Alt Bom"/>
+                            <PropertyValue Property="Value" Path="AlternativeBOM"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Value" Path="status"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Division"/>
+                            <PropertyValue Property="Value" Path="Division"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Usage"/>
+                            <PropertyValue Property="Value" Path="MaterialUsage"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Description"/>
+                            <PropertyValue Property="Value" Path="Description"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Bom Cat"/>
+                            <PropertyValue Property="Value" Path="Category"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm Code"/>
+                            <PropertyValue Property="Value" Path="Commodity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm Code Description"/>
+                            <PropertyValue Property="Value" Path="CommodityText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio%"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Message"/>
+                            <PropertyValue Property="Value" Path="message"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>material</PropertyPath>
+                        <PropertyPath>vkorg</PropertyPath>
+                        <PropertyPath>vtweg</PropertyPath>
+                        <PropertyPath>plant</PropertyPath>
+                        <PropertyPath>status</PropertyPath>
+                        <PropertyPath>nonzeroratio</PropertyPath>
+                        <PropertyPath>error</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_EXP_MATLEVEL_HELPType/value">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_EXP_MATLEVEL_HELPType/langu">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_EXP_MATLEVEL_HELPType/description">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_EXP_MATLEVEL_HELPType">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Value"/>
+                            <PropertyValue Property="Value" Path="value"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Desc"/>
+                            <PropertyValue Property="Value" Path="description"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Value"/>
+                            <PropertyValue Property="Value" Path="value"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Desc"/>
+                            <PropertyValue Property="Value" Path="description"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_FREIGHT_SPLITType/material">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_FREIGHT_SPLITType/Sequence">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_FREIGHT_SPLITType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Freight value distribution"/>
+                            <PropertyValue Property="ID" String="fval"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#fvalq"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="fvalq">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Material"/>
+                                    <PropertyValue Property="Value" Path="matcomp"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Material Description"/>
+                                    <PropertyValue Property="Value" Path="compdesc"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Comm./imp. code"/>
+                                    <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Comm. code description"/>
+                                    <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="US Comm. code"/>
+                                    <PropertyValue Property="Value" Path="trdclassfctnnmbrUS"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="US Comm. code description"/>
+                                    <PropertyValue Property="Value" Path="TrdClassfctUSText"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                                    <PropertyValue Property="Value" Path="Moss"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Price Ratio %"/>
+                                    <PropertyValue Property="Value" Path="PriceRatio"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Material"/>
+                                    <PropertyValue Property="Value" Path="Value"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material Description"/>
+                            <PropertyValue Property="Value" Path="compdesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm./imp. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="US Comm. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbrUS"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="US Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctUSText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                            <PropertyValue Property="Value" Path="Moss"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio %"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Cond Value"/>
+                            <PropertyValue Property="Value" Path="Value"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material Description"/>
+                            <PropertyValue Property="Value" Path="compdesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm./imp. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="US Comm. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbrUS"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="US Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctUSText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                            <PropertyValue Property="Value" Path="Moss"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio %"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Cond Value"/>
+                            <PropertyValue Property="Value" Path="Value"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_PACKBOM_COMPONENTSType/material">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_PACKBOM_COMPONENTSType/Sequence">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_PACKBOM_COMPONENTSType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Full Pack"/>
+                            <PropertyValue Property="ID" String="allcomp"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#allcompq"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="allcompq">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="level"/>
+                                    <PropertyValue Property="Value" Path="level"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Component"/>
+                                    <PropertyValue Property="Value" Path="matcomp"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Component Description"/>
+                                    <PropertyValue Property="Value" Path="compdesc"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="BOM cat"/>
+                                    <PropertyValue Property="Value" Path="billofmaterialcategory"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Exp(Att8)"/>
+                                    <PropertyValue Property="Value" Path="ExplodeBom"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Comm. code"/>
+                                    <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Comm. code description"/>
+                                    <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                                    <PropertyValue Property="Value" Path="Moss"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Price Ratio %"/>
+                                    <PropertyValue Property="Value" Path="PriceRatio"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="level"/>
+                            <PropertyValue Property="Value" Path="level"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component Description"/>
+                            <PropertyValue Property="Value" Path="compdesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="BOM cat"/>
+                            <PropertyValue Property="Value" Path="billofmaterialcategory"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Exp(Att8)"/>
+                            <PropertyValue Property="Value" Path="ExplodeBom"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                            <PropertyValue Property="Value" Path="Moss"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio %"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Level"/>
+                            <PropertyValue Property="Value" Path="level"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component Description"/>
+                            <PropertyValue Property="Value" Path="compdesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="BOM cat"/>
+                            <PropertyValue Property="Value" Path="billofmaterialcategory"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Exp(Att8)"/>
+                            <PropertyValue Property="Value" Path="ExplodeBom"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                            <PropertyValue Property="Value" Path="Moss"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio %"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.zotc_c_price_ratio_validType/sequence">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.zotc_c_price_ratio_validType">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String=" Bom Material"/>
+                            <PropertyValue Property="Value" Path="material"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Sales Org"/>
+                            <PropertyValue Property="Value" Path="vkorg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Dist Channel"/>
+                            <PropertyValue Property="Value" Path="vtweg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Plant"/>
+                            <PropertyValue Property="Value" Path="plant"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Alt Bom"/>
+                            <PropertyValue Property="Value" Path="AlternativeBOM"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Value" Path="status"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Division"/>
+                            <PropertyValue Property="Value" Path="Division"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Usage"/>
+                            <PropertyValue Property="Value" Path="MaterialUsage"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Description"/>
+                            <PropertyValue Property="Value" Path="Description"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Bom Cat"/>
+                            <PropertyValue Property="Value" Path="Category"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm Code"/>
+                            <PropertyValue Property="Value" Path="Commodity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm Code Description"/>
+                            <PropertyValue Property="Value" Path="CommodityText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio%"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Message"/>
+                            <PropertyValue Property="Value" Path="message"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Ignore 0% Ratio packs"/>
+                            <PropertyValue Property="Value" Path="nonzeroratio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Show error only"/>
+                            <PropertyValue Property="Value" Path="error"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Pack"/>
+                            <PropertyValue Property="Value" Path="material"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Sales Org"/>
+                            <PropertyValue Property="Value" Path="vkorg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Dist Channel"/>
+                            <PropertyValue Property="Value" Path="vtweg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Plant"/>
+                            <PropertyValue Property="Value" Path="plant"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Alt Bom"/>
+                            <PropertyValue Property="Value" Path="AlternativeBOM"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Value" Path="status"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Division"/>
+                            <PropertyValue Property="Value" Path="Division"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Usage"/>
+                            <PropertyValue Property="Value" Path="MaterialUsage"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Description"/>
+                            <PropertyValue Property="Value" Path="Description"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Bom Cat"/>
+                            <PropertyValue Property="Value" Path="Category"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm Code"/>
+                            <PropertyValue Property="Value" Path="Commodity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm Code Description"/>
+                            <PropertyValue Property="Value" Path="CommodityText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio%"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Message"/>
+                            <PropertyValue Property="Value" Path="message"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>material</PropertyPath>
+                        <PropertyPath>vkorg</PropertyPath>
+                        <PropertyPath>vtweg</PropertyPath>
+                        <PropertyPath>plant</PropertyPath>
+                        <PropertyPath>status</PropertyPath>
+                        <PropertyPath>nonzeroratio</PropertyPath>
+                        <PropertyPath>error</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_PRODVALUE_SPLITType/material">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_PRODVALUE_SPLITType/Sequence">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_PRODVALUE_SPLITType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Product value distribution"/>
+                            <PropertyValue Property="ID" String="pval"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#pvalq"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="pvalq">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Material"/>
+                                    <PropertyValue Property="Value" Path="matcomp"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Material Description"/>
+                                    <PropertyValue Property="Value" Path="compdesc"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Comm./imp. code"/>
+                                    <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Comm. code description"/>
+                                    <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="US Comm. code"/>
+                                    <PropertyValue Property="Value" Path="trdclassfctnnmbrUS"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="US Comm. code description"/>
+                                    <PropertyValue Property="Value" Path="TrdClassfctUSText"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                                    <PropertyValue Property="Value" Path="Moss"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Price Ratio %"/>
+                                    <PropertyValue Property="Value" Path="PriceRatio"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Material"/>
+                                    <PropertyValue Property="Value" Path="Value"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material Description"/>
+                            <PropertyValue Property="Value" Path="compdesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm./imp. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="US Comm. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbrUS"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="US Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctUSText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                            <PropertyValue Property="Value" Path="Moss"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio %"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Cond Value"/>
+                            <PropertyValue Property="Value" Path="Value"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material"/>
+                            <PropertyValue Property="Value" Path="matcomp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material Description"/>
+                            <PropertyValue Property="Value" Path="compdesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm./imp. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="US Comm. code"/>
+                            <PropertyValue Property="Value" Path="trdclassfctnnmbrUS"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="US Comm. code description"/>
+                            <PropertyValue Property="Value" Path="TrdClassfctUSText"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Elec(MOSS)"/>
+                            <PropertyValue Property="Value" Path="Moss"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Price Ratio %"/>
+                            <PropertyValue Property="Value" Path="PriceRatio"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Cond Value"/>
+                            <PropertyValue Property="Value" Path="Value"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_BOM_RATIO_SRV.ZOTC_C_VALUE_SIMULATIONType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Product Value Simulation"/>
+                            <PropertyValue Property="Target" AnnotationPath="to_pval/@UI.LineItem"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Freight Value Simulation"/>
+                            <PropertyValue Property="Target" AnnotationPath="to_fval/@UI.LineItem"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="All Components"/>
+                            <PropertyValue Property="Target" AnnotationPath="to_all/@UI.LineItem"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="PED Components"/>
+                            <PropertyValue Property="Target" AnnotationPath="to_ped/@UI.LineItem"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Mat">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Material"/>
+                                    <PropertyValue Property="Value" Path="product"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Sales Org"/>
+                                    <PropertyValue Property="Value" Path="vkorg"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Plant"/>
+                                    <PropertyValue Property="Value" Path="plant"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Distribution Channel"/>
+                                    <PropertyValue Property="Value" Path="vtweg"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Service Date"/>
+                                    <PropertyValue Property="Value" Path="ServDate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Product value"/>
+                                    <PropertyValue Property="Value" Path="ProdPrice"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Freight Value"/>
+                                    <PropertyValue Property="Value" Path="FrgtPrice"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Explode to Material Level"/>
+                                    <PropertyValue Property="Value" Path="Explodelevel"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Value Simulation"/>
+                        <PropertyValue Property="TypeNamePlural" String="Value Simulation"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material"/>
+                            <PropertyValue Property="Value" Path="product"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Sales Org"/>
+                            <PropertyValue Property="Value" Path="vkorg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Plant"/>
+                            <PropertyValue Property="Value" Path="plant"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Distribution Channel"/>
+                            <PropertyValue Property="Value" Path="vtweg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Service Date"/>
+                            <PropertyValue Property="Value" Path="ServDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Product Value"/>
+                            <PropertyValue Property="Value" Path="ProdPrice"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Freight Value"/>
+                            <PropertyValue Property="Value" Path="FrgtPrice"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Explode to Material Level"/>
+                            <PropertyValue Property="Value" Path="Explodelevel"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material"/>
+                            <PropertyValue Property="Value" Path="product"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Sales Org"/>
+                            <PropertyValue Property="Value" Path="vkorg"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Plant"/>
+                            <PropertyValue Property="Value" Path="plant"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Distribution Channel"/>
+                            <PropertyValue Property="Value" Path="vtweg"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>product</PropertyPath>
+                        <PropertyPath>vkorg</PropertyPath>
+                        <PropertyPath>plant</PropertyPath>
+                        <PropertyPath>vtweg</PropertyPath>
+                        <PropertyPath>ServDate</PropertyPath>
+                        <PropertyPath>ProdPrice</PropertyPath>
+                        <PropertyPath>FrgtPrice</PropertyPath>
+                        <PropertyPath>Explodelevel</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
