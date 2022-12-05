@@ -13,6 +13,9 @@ sap.ui.define(
 
         // grid table
         _oTable = this.byId(_sIdPrefix + "GridTable");
+
+        // set threshold to 5000
+        _oTable.setThreshold(5000);
       },
 
       onAfterRendering: function () {

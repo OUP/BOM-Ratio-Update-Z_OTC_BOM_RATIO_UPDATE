@@ -18,6 +18,7 @@
         "start-variants-management": "fiori run --open \"preview.html?fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true&sap-client=130#preview-app\"",
         "build": "ui5 build -a --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
         "deploy": "npm run build && fiori deploy --config ui5-deploy.yaml && rimraf archive.zip",
+        "deploy-new": "npm run build && fiori deploy --config ui5-deploy.yaml",
         "deploy-config": "fiori add deploy-config",
         "start-mock": "fiori run --open 'test/flpSandboxMockServer.html?sap-client=130#zotcbomratioupdate-tile'",
         "undeploy": "fiori undeploy --config ui5-deploy.yaml",
@@ -27,7 +28,7 @@
         "@ui5/cli": "^2.11.1",
         "@ui5/fs": "^2.0.6",
         "@ui5/logger": "^2.0.1",
-        "@sap/ux-ui5-tooling": "1",
+        "@sap/ux-ui5-tooling": "1.5.1",
         "rimraf": "3.0.2",
         "@sap/ux-specification": "UI5-1.71"
     },
