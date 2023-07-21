@@ -15,11 +15,11 @@ sap.ui.define(
         _oTable = this.byId(_sIdPrefix + "GridTable");
 
         // set threshold to 5000
-        _oTable.setThreshold(5000);
+        // _oTable.setThreshold(5000);
       },
 
       onAfterRendering: function () {
-        _oTable.attachBusyStateChanged(this._onBusyStateChanged);
+        // _oTable.attachBusyStateChanged(this._onBusyStateChanged);
       },
 
       onTestMode: function (_oEvent) {
