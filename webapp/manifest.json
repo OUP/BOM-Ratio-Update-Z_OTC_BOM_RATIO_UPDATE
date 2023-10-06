@@ -163,7 +163,7 @@
               }
             },
             "tableSettings": {
-              "type": "TreeTable"
+              "type": "GridTable"
             }
           }
         }

@@ -78,13 +78,16 @@ sap.ui.define(
           const sControlName = oControl.getMetadata().getName();
           let sInput = "";
 
-          if (sControlName === "sap.m.MultiInput") {
+          if (
+            sControlName === "sap.m.MultiInput" ||
+            sControlName === "sap.ui.comp.smartfilterbar.SFBMultiInput"
+          ) {
             const aTokens = oControl.getTokens();
 
             for (let i = 0, iLen = aTokens.length; i < iLen; i++) {
               let sKey = aTokens[i].getKey();
 
-              if(!sKey) {
+              if (!sKey) {
                 sKey = aTokens[i].getProperty("text").substr(1);
               }
 
@@ -104,7 +107,14 @@ sap.ui.define(
 
         for (let i = 0, iLen = aControlConfig.length; i < iLen; i++) {
           const sKey = aControlConfig[i].getKey();
-          urlParameters[sKey] = fnGetValuesFromControl(oFilterBar, sKey);
+          let sValue = fnGetValuesFromControl(oFilterBar, sKey);
+
+          // remove trailing "|"
+          if (sValue.slice(-1) === "|") {
+            sValue = sValue.slice(0, -1);
+          }
+
+          urlParameters[sKey] = sValue;
         }
 
         // test run enable or disable
